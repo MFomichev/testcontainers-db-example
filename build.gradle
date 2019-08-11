@@ -1,14 +1,40 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.7.RELEASE")
+        classpath("com.netflix.nebula:nebula-project-plugin:6.0.3")
+    }
 }
 
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'nebula.integtest'
+
 group 'xyz.fomichev'
-version '0.0.1'
+
+jar {
+    baseName = 'testcontainers-db-example'
+    version = '0.0.1'
+}
+
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.projectlombok:lombok"
+    compile "org.postgresql:postgresql:42.2.5"
+    compile "org.liquibase:liquibase-core"
+
+    testCompile "junit:junit"
+    testCompile "org.mockito:mockito-core"
+
+    integTestCompile 'org.springframework.boot:spring-boot-starter-test'
+    integTestCompile "org.testcontainers:postgresql:1.11.3"
 }
