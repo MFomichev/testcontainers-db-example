@@ -3,5 +3,5 @@ package xyz.fomichev.service;
 import xyz.fomichev.domain.Person;
 
 public interface PersonService {
-    Person getPerson(String id);
+    Person getPerson(long id);
 }

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class Person {
-    private String id;
+    private long id;
     private String lastName;
     private String firstName;
     private String phoneNumber;

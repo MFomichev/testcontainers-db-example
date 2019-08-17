@@ -24,13 +24,13 @@ public class PersonRowMapperTest {
 
     @Test
     public void testCorrectSettingFields() throws SQLException {
-        when(resultSet.getString("ID")).thenReturn("myId");
+        when(resultSet.getLong("ID")).thenReturn(7L);
         when(resultSet.getString("LAST_NAME")).thenReturn("myLastName");
         when(resultSet.getString("FIRST_NAME")).thenReturn("myFirstName");
         when(resultSet.getString("PHONE_NUMBER")).thenReturn("myPhoneNumber");
         when(resultSet.getString("EMAIL")).thenReturn("myEmail");
         Person person = mapper.mapRow(resultSet, 0);
-        assertEquals("myId", person.getId());
+        assertEquals(7, person.getId());
         assertEquals("myLastName", person.getLastName());
         assertEquals("myFirstName", person.getFirstName());
         assertEquals("myPhoneNumber", person.getPhoneNumber());

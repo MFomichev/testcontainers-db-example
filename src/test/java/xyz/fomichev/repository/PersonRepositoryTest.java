@@ -31,18 +31,18 @@ public class PersonRepositoryTest {
 
     @Test
     public void testReturnPerson() {
-        Person expectedPerson = new Person("007","Иванов", "Иван", "9095551122", "ivan@ivanov.net");
-        when(jdbcTemplate.queryForObject(any(), isA(PersonRowMapper.class), eq("007"))).thenReturn(expectedPerson);
-        Optional<Person> optional = repository.getPerson("007");
+        Person expectedPerson = new Person(7,"Иванов", "Иван", "9095551122", "ivan@ivanov.net");
+        when(jdbcTemplate.queryForObject(any(), isA(PersonRowMapper.class), eq(7L))).thenReturn(expectedPerson);
+        Optional<Person> optional = repository.getPerson(7);
         assertTrue(optional.isPresent());
         assertEquals(expectedPerson, optional.get());
     }
 
     @Test
     public void testNoSuchPerson() {
-        when(jdbcTemplate.queryForObject(any(), isA(PersonRowMapper.class), eq("007")))
+        when(jdbcTemplate.queryForObject(any(), isA(PersonRowMapper.class), eq(7L)))
                 .thenThrow(new EmptyResultDataAccessException(1));
-        Optional<Person> optional = repository.getPerson("007");
+        Optional<Person> optional = repository.getPerson(7);
         assertFalse(optional.isPresent());
     }
 

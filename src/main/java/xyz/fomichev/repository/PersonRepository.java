@@ -5,5 +5,5 @@ import java.util.Optional;
 import xyz.fomichev.domain.Person;
 
 public interface PersonRepository {
-    Optional<Person> getPerson(String id);
+    Optional<Person> getPerson(long id);
 }

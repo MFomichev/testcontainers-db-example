@@ -16,7 +16,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public Optional<Person> getPerson(String id) {
+    public Optional<Person> getPerson(long id) {
         try {
             return Optional.of(jdbcTemplate.queryForObject(
                     "SELECT * FROM PERSON WHERE ID=?",

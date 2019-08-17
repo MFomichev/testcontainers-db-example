@@ -4,7 +4,7 @@ spring:
             initialSize: 2
             max-active: 20
             max-idle: 20
-        url: jdbc:tc:postgresql:9.6.8://hostname/databasename
+        url: jdbc:tc:postgresql:11.5://hostname/databasename
         driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
         username: TEST_USER
         password: TEST_PASSWORD

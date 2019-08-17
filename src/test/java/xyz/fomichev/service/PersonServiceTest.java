@@ -25,15 +25,15 @@ public class PersonServiceTest {
 
     @Test
     public void testServiceReturnPerson() {
-        Person expectedPerson = new Person("007","Иванов", "Иван", "9095551122", "ivan@ivanov.net");
-        when(repository.getPerson("007")).thenReturn(Optional.of(expectedPerson));
-        assertEquals(expectedPerson, service.getPerson("007"));
+        Person expectedPerson = new Person(7,"Иванов", "Иван", "9095551122", "ivan@ivanov.net");
+        when(repository.getPerson(7)).thenReturn(Optional.of(expectedPerson));
+        assertEquals(expectedPerson, service.getPerson(7));
     }
 
     @Test(expected = NoSuchPersonException.class)
     public void testIfRepositoryNotReturnPerson() {
-        when(repository.getPerson("007")).thenReturn(Optional.empty());
-        service.getPerson("007");
+        when(repository.getPerson(7)).thenReturn(Optional.empty());
+        service.getPerson(7);
     }
 
 }

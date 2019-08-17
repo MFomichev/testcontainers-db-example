@@ -43,11 +43,11 @@ public class PersonApplicationTest {
 
     @Test
     public void testGetPerson() throws Exception {
-        mockMvc.perform(get("/person/0002")
+        mockMvc.perform(get("/person/3")
                 .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().is(HttpStatus.OK.value()))
-                .andExpect(jsonPath("$.id", is("0002")))
+                .andExpect(jsonPath("$.id", is(3)))
                 .andExpect(jsonPath("$.lastName", is("Петров")))
                 .andExpect(jsonPath("$.firstName", is("Алексей")))
                 .andExpect(jsonPath("$.phoneNumber", is("9551142233")))
@@ -57,7 +57,7 @@ public class PersonApplicationTest {
 
     @Test
     public void testPersonNotFound() throws Exception {
-        mockMvc.perform(get("/person/007")
+        mockMvc.perform(get("/person/7")
                 .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().is(HttpStatus.NOT_FOUND.value()));

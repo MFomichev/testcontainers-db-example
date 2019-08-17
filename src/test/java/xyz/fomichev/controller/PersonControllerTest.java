@@ -23,9 +23,9 @@ public class PersonControllerTest {
 
     @Test
     public void testReturnPerson() {
-        Person expectedPerson = new Person("007","Иванов", "Иван", "9095551122", "ivan@ivanov.net");
-        when(personService.getPerson("007")).thenReturn(expectedPerson);
-        assertEquals(expectedPerson, controller.getPerson("007"));
+        Person expectedPerson = new Person(7,"Иванов", "Иван", "9095551122", "ivan@ivanov.net");
+        when(personService.getPerson(7)).thenReturn(expectedPerson);
+        assertEquals(expectedPerson, controller.getPerson(7));
     }
 
     @Test

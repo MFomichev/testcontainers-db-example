@@ -15,7 +15,7 @@ public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
 
     @Override
-    public Person getPerson(String id) {
+    public Person getPerson(long id) {
         return personRepository.getPerson(id)
                 .orElseThrow(() -> new NoSuchPersonException(format("Person with id %s is not found", id)));
     }
